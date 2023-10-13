@@ -1,6 +1,8 @@
 docker:
   image: "gradle:jdk17-jammy"
+env:
+  JAVA_HOME: "/opt/java/openjdk"
 merge:
   fast-forward: yes
   script: |
-    ./gradlew check /home/r/settings.xml -B -e
+    ./gradlew check 
