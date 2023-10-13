@@ -15,8 +15,6 @@ repositories {
 }
 
 dependencies {
-    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
-
     implementation(libs.log4jdbc)
     implementation("jakarta.annotation:jakarta.annotation-api")
     implementation("org.springframework.boot:spring-boot-autoconfigure")
