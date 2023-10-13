@@ -18,7 +18,7 @@ Quick Start
 
 #### Gradle
 ```kotlin
-    implementation("ru.vasiand:spring-boot-starter-log4jdbc:1.0.0")
+    implementation("ru.vasiand:spring-boot-starter-log4jdbc:${version}")
 ```
 
 #### Maven
@@ -26,7 +26,7 @@ Quick Start
   <dependency>
     <groupId>ru.vasiand</groupId>
     <artifactId>spring-boot-starter-log4jdbc</artifactId>
-    <version>1.0.0</version>
+    <version>${version}</version>
   </dependency>
 ```
 * **Configure** — In `application.properties`, enable a logger (for example, `logging.level.jdbc.sqlonly=INFO`). 
