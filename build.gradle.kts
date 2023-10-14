@@ -3,7 +3,6 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 
 plugins {
     `java-library`
-    alias(libs.plugins.spring.boot)
     alias(libs.plugins.spring.deps.management)
     pmd
 
@@ -18,6 +17,12 @@ version = scmVersion.version
 
 repositories {
     mavenCentral()
+}
+
+dependencyManagement {
+    imports {
+        mavenBom(libs.spring.boot.deps.get().toString())
+    }
 }
 
 dependencies {
@@ -35,27 +40,18 @@ java {
         languageVersion.set(JavaLanguageVersion.of(17))
     }
     withSourcesJar()
+    withJavadocJar()
 }
 
 tasks.compileJava {
     options.compilerArgs.addAll(
         listOf(
-            "-Xlint:all,-processing", // Enables all recommended warnings.
-            "-Werror" // Terminates compilation when warnings occur.
+            "-Xlint:all,-processing",
+            "-Xdoclint:none",
+            "-Werror",
         )
     )
     options.encoding = "UTF-8"
-}
-
-tasks.jar {
-    manifest {
-        attributes(
-            mapOf(
-                "Implementation-Title" to project.name,
-                "Implementation-Version" to project.version
-            )
-        )
-    }
 }
 
 tasks.test {
@@ -72,7 +68,6 @@ pmd {
 }
 
 scmVersion {
-    localOnly.set(true)
     with(tag) {
         prefix.set("")
         versionSeparator.set("")
@@ -88,7 +83,15 @@ nexusPublishing {
     }
 }
 
-tasks.withType<Jar> {
+tasks.jar {
+    manifest {
+        attributes(
+            mapOf(
+                "Implementation-Title" to project.name,
+                "Implementation-Version" to project.version
+            )
+        )
+    }
     from(rootProject.projectDir) {
         include("LICENSE.txt")
         into("META-INF")
@@ -131,4 +134,8 @@ signing {
     isRequired = gpgKey != null
     useInMemoryPgpKeys(gpgKey, gpgPass)
     sign(publishing.publications["mavenJava"])
+}
+
+tasks.verifyRelease {
+    dependsOn(tasks.check)
 }

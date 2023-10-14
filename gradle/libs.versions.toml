@@ -5,9 +5,9 @@ springDeps = "1.1.3"
 
 [libraries]
 log4jdbc = { module = "org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1", version.ref = "log4jdbc" }
+spring-boot-deps = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springBoot" }
 
 [plugins]
 axion-release = { id = "pl.allegro.tech.build.axion-release", version = "1.15.5" }
 nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version = "1.3.0" }
-spring-boot = { id = "org.springframework.boot", version.ref = "springBoot" }
 spring-deps-management = { id = "io.spring.dependency-management", version.ref = "springDeps" }

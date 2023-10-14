@@ -1,4 +1,4 @@
-name: Project release
+name: Release
 
 on:
   workflow_dispatch:
@@ -25,7 +25,7 @@ jobs:
       - name: Release new version
         id: release
         run: |
-          ./gradlew release \
+          ./gradlew --info release \
             -Prelease.version=${{ github.event.inputs.releaseVersion }} \
             -Prelease.customUsername=${{ github.actor }} \
             -Prelease.customPassword=${{ github.token }}
@@ -37,20 +37,17 @@ jobs:
           ORG_GRADLE_PROJECT_sonatypePassword: ${{ secrets.SONATYPE_PASS }}
           GPG_KEY: ${{ secrets.GPG_KEY }}
           GPG_PASS: ${{ secrets.GPG_PASS }}
-        run: ./gradlew publishToSonatype closeAndReleaseSonatypeStagingRepository
+        run: ./gradlew --info publishToSonatype closeAndReleaseSonatypeStagingRepository
 
       - name: GitHub Release
         id: github_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ github.token }}
+        uses: ncipollo/release-action@v1.13.0
         with:
-          tag_name: ${{ github.event.inputs.releaseVersion }}
-          release_name: ${{ github.event.inputs.releaseVersion }}
+          name: ${{ github.event.inputs.releaseVersion }}
           body: |
             ### ⭐ New Features
              - none
             ### 🐞 Bug fixes
              - none
           draft: true
-          prerelease: false
+          removeArtifacts: true
