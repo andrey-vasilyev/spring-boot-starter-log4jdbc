@@ -3,7 +3,7 @@ Log4jdbc Spring Boot Starter
 
 [![DevOps By Rultor.com](http://www.rultor.com/b/andrey-vasilyev/spring-boot-starter-log4jdbc)](http://www.rultor.com/b/andrey-vasilyev/spring-boot-starter-log4jdbc)
 [![Build Status](https://github.com/andrey-vasilyev/spring-boot-starter-log4jdbc/actions/workflows/gradle.yml/badge.svg)](https://github.com/andrey-vasilyev/spring-boot-starter-log4jdbc/actions/workflows/gradle.yml/badge.svg)
-
+[![Coverage Status](https://coveralls.io/repos/github/andrey-vasilyev/spring-boot-starter-log4jdbc/badge.svg)](https://coveralls.io/github/andrey-vasilyev/spring-boot-starter-log4jdbc)
 
 The Log4jdbc Spring Boot 3 Starter facilitates the quick and easy use of [log4jdbc](http://log4jdbc.brunorozendo.com/) in Spring Boot projects.
 

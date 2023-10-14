@@ -9,5 +9,6 @@ spring-boot-deps = { module = "org.springframework.boot:spring-boot-dependencies
 
 [plugins]
 axion-release = { id = "pl.allegro.tech.build.axion-release", version = "1.15.5" }
+kt3k-coveralls = { id = "com.github.kt3k.coveralls",  version = "2.12.2" }
 nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version = "1.3.0" }
 spring-deps-management = { id = "io.spring.dependency-management", version.ref = "springDeps" }

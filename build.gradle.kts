@@ -4,6 +4,8 @@ import org.gradle.api.tasks.testing.logging.TestLogEvent
 plugins {
     `java-library`
     alias(libs.plugins.spring.deps.management)
+    alias(libs.plugins.kt3k.coveralls)
+    jacoco
     pmd
 
     `maven-publish`
@@ -59,6 +61,14 @@ tasks.test {
     testLogging {
         events = setOf(TestLogEvent.FAILED)
         exceptionFormat = TestExceptionFormat.FULL
+    }
+}
+
+tasks.jacocoTestReport {
+    dependsOn(tasks.test) // tests are required to run before generating the report
+    reports {
+        xml.required = true
+        html.required = true
     }
 }
 

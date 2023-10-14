@@ -27,5 +27,7 @@ jobs:
 
     - name: Check with Gradle
       uses: gradle/gradle-build-action@bd5760595778326ba7f1441bcf7e88b49de61a25 # v2.6.0
+      env:
+        COVERALLS_REPO_TOKEN: ${{ secrets.COVERALLS_TOKEN }}
       with:
-        arguments: check
+        arguments: jacocoTestReport coveralls
