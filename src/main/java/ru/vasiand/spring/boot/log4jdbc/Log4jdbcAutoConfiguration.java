@@ -16,8 +16,8 @@ import org.springframework.context.annotation.Bean;
 @ConditionalOnClass(DataSourceSpy.class)
 @ConditionalOnProperty(name = "log4jdbc.spy.enabled", havingValue = "true", matchIfMissing = true)
 public class Log4jdbcAutoConfiguration {
-	@Bean
-	public static Log4jdbcBeanPostProcessor log4jdbcBeanPostProcessor() {
-		return new Log4jdbcBeanPostProcessor();
-	}
+    @Bean
+    public static Log4jdbcBeanPostProcessor log4jdbcBeanPostProcessor() {
+        return new Log4jdbcBeanPostProcessor();
+    }
 }
