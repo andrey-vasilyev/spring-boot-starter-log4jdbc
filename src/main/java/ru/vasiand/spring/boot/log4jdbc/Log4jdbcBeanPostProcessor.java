@@ -85,6 +85,9 @@ public class Log4jdbcBeanPostProcessor implements BeanPostProcessor {
         }
         // Use slf4j by default.
         // Most users will have slf4j configured (because Spring does that by default) and they won't be using log4j (which is the log4jdbc default)
-        System.setProperty("log4jdbc.spylogdelegator.name", this.environment.getProperty("log4jdbc.spylogdelegator.name", Slf4jSpyLogDelegator.class.getName()));
+        System.setProperty(
+            "log4jdbc.spylogdelegator.name",
+            this.environment.getProperty("log4jdbc.spylogdelegator.name", Slf4jSpyLogDelegator.class.getName())
+        );
     }
 }
