@@ -14,7 +14,7 @@ with their actual values. So instead of `select name from User where id = ?` the
 
 Quick Start
 ===========
-* **Minimum requirements** — You'll need Java 17+ and Spring Boot 3+.
+*  **Minimum requirements** — You'll need Java 17+ and Spring Boot 3+.
 
 #### Gradle
 ```kotlin
@@ -29,8 +29,8 @@ Quick Start
     <version>${version}</version>
   </dependency>
 ```
-* **Configure** — In `application.properties`, enable a logger (for example, `logging.level.jdbc.sqlonly=INFO`). 
-* See [Loggers](#loggers) for details.
+*  **Configure** — In `application.properties`, enable a logger (for example, `logging.level.jdbc.sqlonly=INFO`). 
+*  See [Loggers](#loggers) for details.
 
 Configuration
 =============
