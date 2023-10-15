@@ -44,6 +44,8 @@ jobs:
         uses: ncipollo/release-action@v1.13.0
         with:
           name: ${{ github.event.inputs.releaseVersion }}
+          tag: ${{ github.event.inputs.releaseVersion }}
+          commit: master
           body: |
             ### ⭐ New Features
              - none

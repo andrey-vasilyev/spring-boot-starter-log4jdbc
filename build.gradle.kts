@@ -77,13 +77,6 @@ pmd {
     ruleSetFiles = files("pmd.xml")
 }
 
-scmVersion {
-    with(tag) {
-        prefix.set("")
-        versionSeparator.set("")
-    }
-}
-
 nexusPublishing {
     repositories {
         sonatype {
