@@ -1,9 +1,10 @@
 Log4jdbc Spring Boot Starter
 ============================
 
-[![DevOps By Rultor.com](http://www.rultor.com/b/andrey-vasilyev/spring-boot-starter-log4jdbc)](http://www.rultor.com/b/andrey-vasilyev/spring-boot-starter-log4jdbc)
+[![Latest release](https://img.shields.io/badge/dynamic/xml.svg?label=Maven%20Central&color=green&query=%2F%2Fmetadata%2Fversioning%2Flatest&url=https%3A%2F%2Frepo1.maven.org%2Fmaven2%2Fru%2Fvasiand%2Fspring-boot-starter-log4jdbc%2Fmaven-metadata.xml)](https://mvnrepository.com/artifact/ru.vasiand/spring-boot-starter-log4jdbc/)
 [![Build Status](https://github.com/andrey-vasilyev/spring-boot-starter-log4jdbc/actions/workflows/gradle.yml/badge.svg)](https://github.com/andrey-vasilyev/spring-boot-starter-log4jdbc/actions/workflows/gradle.yml/badge.svg)
 [![Coverage Status](https://coveralls.io/repos/github/andrey-vasilyev/spring-boot-starter-log4jdbc/badge.svg)](https://coveralls.io/github/andrey-vasilyev/spring-boot-starter-log4jdbc)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/ae29d2964a7e47a382870e8bd318266b)](https://app.codacy.com/gh/andrey-vasilyev/spring-boot-starter-log4jdbc/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 
 The Log4jdbc Spring Boot 3 Starter facilitates the quick and easy use of [log4jdbc](http://log4jdbc.brunorozendo.com/) in Spring Boot projects.
 
@@ -12,9 +13,13 @@ Instead of logging SQL with '?' where parameter values need to be inserted (like
 what `spring.jpa.properties.hibernate.show_sql=true` does), log4jdbc can log SQL with those placeholders substituted 
 with their actual values. So instead of `select name from User where id = ?` the log will say `select name from User where id = 5`.
 
+Forked from [this repo](https://github.com/candrews/log4jdbc-spring-boot-starter) as it seem to be no longer maintained.
+
 Quick Start
 ===========
-*  **Minimum requirements** — You'll need Java 17+ and Spring Boot 3+.
+**Minimum requirements** — You'll need Java 17+ and Spring Boot 3+.
+1. Make sure Maven Central is on the repository list and add a dependency (see below)
+2. Enable a logger (for example, add `logging.level.jdbc.sqlonly=INFO` to `application.properties`), check the list of [Loggers](#loggers) for details. 
 
 #### Gradle
 ```kotlin
@@ -29,8 +34,6 @@ Quick Start
     <version>${version}</version>
   </dependency>
 ```
-*  **Configure** — In `application.properties`, enable a logger (for example, `logging.level.jdbc.sqlonly=INFO`). 
-*  See [Loggers](#loggers) for details.
 
 Configuration
 =============
