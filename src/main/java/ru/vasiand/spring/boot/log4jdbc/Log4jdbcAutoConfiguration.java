@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnClass;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 
 /**
@@ -13,9 +14,11 @@ import org.springframework.context.annotation.Bean;
  *
  */
 @AutoConfiguration(after = DataSourceAutoConfiguration.class)
+@EnableConfigurationProperties(Log4jdbcProperties.class)
 @ConditionalOnClass(DataSourceSpy.class)
 @ConditionalOnProperty(name = "log4jdbc.spy.enabled", havingValue = "true", matchIfMissing = true)
 public class Log4jdbcAutoConfiguration {
+
     @Bean
     public static Log4jdbcBeanPostProcessor log4jdbcBeanPostProcessor() {
         return new Log4jdbcBeanPostProcessor();
