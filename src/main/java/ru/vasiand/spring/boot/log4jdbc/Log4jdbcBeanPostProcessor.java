@@ -28,6 +28,8 @@ import org.springframework.core.env.Environment;
 
 import javax.sql.DataSource;
 
+import static ru.vasiand.spring.boot.log4jdbc.Log4jdbcProperties.PROPERTIES;
+
 /**
  * A {@link BeanPostProcessor} implementation that sets up log4jdbc logging.
  *
@@ -36,28 +38,6 @@ import javax.sql.DataSource;
 public class Log4jdbcBeanPostProcessor implements BeanPostProcessor {
     @Autowired
     private Environment environment;
-
-    private static final String[] PROPERTIES_TO_COPY = {
-            "log4jdbc.auto.load.popular.drivers",
-            "log4jdbc.debug.stack.prefix",
-            "log4jdbc.drivers",
-            "log4jdbc.dump.booleanastruefalse",
-            "log4jdbc.dump.fulldebugstacktrace",
-            "log4jdbc.dump.sql.addsemicolon",
-            "log4jdbc.dump.sql.create",
-            "log4jdbc.dump.sql.delete",
-            "log4jdbc.dump.sql.insert",
-            "log4jdbc.dump.sql.maxlinelength",
-            "log4jdbc.dump.sql.select",
-            "log4jdbc.dump.sql.update",
-            "log4jdbc.log4j2.properties.file",
-            "log4jdbc.sqltiming.error.threshold",
-            "log4jdbc.sqltiming.warn.threshold",
-            "log4jdbc.statement.warn",
-            "log4jdbc.suppress.generated.keys.exception",
-            "log4jdbc.trim.sql",
-            "log4jdbc.trim.sql.extrablanklines",
-            };
 
     @Override
     public Object postProcessBeforeInitialization(final Object bean, final String beanName) throws BeansException {
@@ -78,7 +58,7 @@ public class Log4jdbcBeanPostProcessor implements BeanPostProcessor {
     public void postConstruct() {
         // Log4jdbc only reads configuration from system properties, so copy relevant environment property to system properties
         // See net.sf.log4jdbc.Properties.getProperties()
-        for (final String property : PROPERTIES_TO_COPY) {
+        for (final String property : PROPERTIES) {
             if (this.environment.containsProperty(property)) {
                 System.setProperty(property, this.environment.getRequiredProperty(property));
             }

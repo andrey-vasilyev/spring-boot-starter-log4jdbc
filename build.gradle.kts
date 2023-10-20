@@ -1,3 +1,4 @@
+
 import org.gradle.api.tasks.testing.logging.TestExceptionFormat
 import org.gradle.api.tasks.testing.logging.TestLogEvent
 
@@ -28,6 +29,10 @@ dependencyManagement {
 }
 
 dependencies {
+    annotationProcessor("org.springframework.boot:spring-boot-configuration-processor")
+    annotationProcessor(libs.lombok)
+    compileOnly(libs.lombok)
+
     implementation(libs.log4jdbc)
     implementation("jakarta.annotation:jakarta.annotation-api")
     implementation("org.springframework.boot:spring-boot-autoconfigure")
@@ -73,6 +78,13 @@ tasks.jacocoTestReport {
         xml.required = true
         html.required = true
     }
+    classDirectories.setFrom(
+        files(classDirectories.files.map {
+            fileTree(it) {
+                exclude("**/Log4jdbcProperties*")
+            }
+        })
+    )
 }
 
 pmd {
