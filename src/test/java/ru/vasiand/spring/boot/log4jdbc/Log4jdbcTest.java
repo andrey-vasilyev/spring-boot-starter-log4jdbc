@@ -36,7 +36,7 @@ public class Log4jdbcTest {
         final var testAppender = setupTestLogger();
         testRepository.save(new TestEntity("256"));
         final var actual = testAppender.getOutputStream().toString(StandardCharsets.UTF_8);
-        assertEquals("INFO select t1_0.id from test_entity t1_0 where t1_0.id='256' ;\nINFO insert into test_entity (id) values ('256') ;\n", actual);
+        assertEquals("INFO select te1_0.id from test_entity te1_0 where te1_0.id='256' ;\nINFO insert into test_entity (id) values ('256') ;\n", actual);
     }
 
     private TestAppender setupTestLogger() {
