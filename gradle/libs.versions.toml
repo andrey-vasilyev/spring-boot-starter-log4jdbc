@@ -1,5 +1,5 @@
 [versions]
-springBoot = "3.2.1"
+springBoot = "3.2.2"
 springDeps = "1.1.4"
 
 [libraries]
