@@ -4,7 +4,7 @@ springDeps = "1.1.4"
 
 [libraries]
 log4jdbc = { module = "org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1", version = "1.16" }
-lombok = { module = "org.projectlombok:lombok", version = "1.18.30" }
+lombok = { module = "org.projectlombok:lombok", version = "1.18.32" }
 spring-boot-deps = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springBoot" }
 
 [plugins]
