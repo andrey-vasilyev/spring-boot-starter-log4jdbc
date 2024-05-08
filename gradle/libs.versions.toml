@@ -1,6 +1,6 @@
 [versions]
 springBoot = "3.2.5"
-springDeps = "1.1.4"
+springDeps = "1.1.5"
 
 [libraries]
 log4jdbc = { module = "org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1", version = "1.16" }
