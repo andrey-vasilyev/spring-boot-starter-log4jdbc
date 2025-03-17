@@ -8,7 +8,7 @@ lombok = { module = "org.projectlombok:lombok", version = "1.18.36" }
 spring-boot-deps = { module = "org.springframework.boot:spring-boot-dependencies", version.ref = "springBoot" }
 
 [plugins]
-axion-release = { id = "pl.allegro.tech.build.axion-release", version = "1.18.17" }
+axion-release = { id = "pl.allegro.tech.build.axion-release", version = "1.18.18" }
 kt3k-coveralls = { id = "com.github.kt3k.coveralls",  version = "2.12.2" }
 nexus-publish = { id = "io.github.gradle-nexus.publish-plugin", version = "2.0.0" }
 spring-deps-management = { id = "io.spring.dependency-management", version.ref = "springDeps" }
