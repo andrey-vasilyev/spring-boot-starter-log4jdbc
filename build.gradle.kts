@@ -36,10 +36,12 @@ dependencies {
     implementation(libs.log4jdbc)
     implementation("jakarta.annotation:jakarta.annotation-api")
     implementation("org.springframework.boot:spring-boot-autoconfigure")
+    implementation("org.springframework.boot:spring-boot-jdbc")
 
     testImplementation("com.h2database:h2")
-    testImplementation("org.springframework.boot:spring-boot-starter-test")
     testImplementation("org.springframework.boot:spring-boot-starter-data-jpa")
+    testImplementation("org.springframework.boot:spring-boot-starter-jdbc-test")
+    testRuntimeOnly("org.junit.platform:junit-platform-launcher")
 
     testCompileOnly(libs.lombok)
     testAnnotationProcessor(libs.lombok)
@@ -47,7 +49,7 @@ dependencies {
 
 java {
     toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
+        languageVersion.set(JavaLanguageVersion.of(25))
     }
     withSourcesJar()
     withJavadocJar()
